@@ -79,6 +79,7 @@ module.exports = configure(function (/* ctx */) {
             exclude: ['**/components/**'],
           },
         ],
+        ['vite-plugin-vue-layouts', {}],
       ],
     },
 
