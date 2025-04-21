@@ -1,14 +1,22 @@
 <template>
   <q-page padding>
-    <div class="text-h4">커뮤니티 목록</div>
-    <section class="q-gutter-y-sm q-mt-lg">
-      <PostList :items="posts" />
-    </section>
+    <div class="row q-col-gutter-x-lg">
+      <PostLeftBar class="col-grow"></PostLeftBar>
+      <section class="col-7">
+        <PostHeader></PostHeader>
+        <PostList :items="posts" />
+      </section>
+      <PostRightBar class="col-3"></PostRightBar>
+    </div>
   </q-page>
 </template>
 
 <script setup>
 import PostList from 'src/components/apps/post/PostList.vue';
+import PostHeader from 'src/pages/components/PostHeader.vue';
+import PostLeftBar from 'src/pages/components/PostLeftBar.vue';
+import PostRightBar from 'src/pages/components/PostRightBar.vue';
+
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
