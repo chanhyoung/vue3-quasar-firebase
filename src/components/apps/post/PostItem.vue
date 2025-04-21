@@ -1,5 +1,5 @@
 <template>
-  <q-item class="bg-white q-pt-md" clickable :to="`/post/${id}`">
+  <q-item class="bg-white q-pt-md" clickable :to="`/posts/${id}`">
     <q-item-section avatar top>
       <q-avatar>
         <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
@@ -23,41 +23,45 @@
         <div class="col-3">
           <div class="flex flex-center">
             <q-btn class="full-width" flat dense @click.prevent>
-              <q-icon name="sym_o_visibility" color="grey" size="xs"></q-icon>
-              <span class="text-grey q-ml-xs text-body2">{{ readCount }}</span>
-              <q-tooltip :offset="[0, 4]">조회수</q-tooltip>
+              <PostIcon
+                name="sym_o_visibility"
+                :label="readCount"
+                tooltip="조회수"
+              >
+              </PostIcon>
             </q-btn>
           </div>
         </div>
         <div class="col-3">
           <div class="flex flex-center">
             <q-btn class="full-width" flat dense @click.prevent>
-              <q-btn flat dense @click.prevent></q-btn>
-              <q-icon name="sym_o_sms" color="grey" size="xs"></q-icon>
-              <span class="text-grey q-ml-xs text-body2">{{
-                commentCount
-              }}</span>
-              <q-tooltip :offset="[0, 4]">댓글수</q-tooltip>
+              <PostIcon
+                name="sym_o_sms"
+                :label="commentCount"
+                tooltip="댓글수"
+              ></PostIcon>
             </q-btn>
           </div>
         </div>
         <div class="col-3">
           <div class="flex flex-center">
             <q-btn class="full-width" flat dense @click.prevent>
-              <q-icon name="sym_o_favorite" color="grey" size="xs"></q-icon>
-              <span class="text-grey q-ml-xs text-body2">{{ likeCount }}</span>
-              <q-tooltip :offset="[0, 4]">좋아요</q-tooltip>
+              <PostIcon
+                name="sym_o_favorite"
+                :label="likeCount"
+                tooltip="좋아요"
+              ></PostIcon>
             </q-btn>
           </div>
         </div>
         <div class="col-3">
           <div class="flex flex-center">
             <q-btn class="full-width" flat dense @click.prevent>
-              <q-icon name="sym_o_bookmark" color="grey" size="xs"></q-icon>
-              <span class="text-grey q-ml-xs text-body2">{{
-                bookmarkCount
-              }}</span>
-              <q-tooltip :offset="[0, 4]">북마크</q-tooltip>
+              <PostIcon
+                name="sym_o_bookmark"
+                :label="bookmarkCount"
+                tooltip="북마크"
+              ></PostIcon>
             </q-btn>
           </div>
         </div>
@@ -67,6 +71,8 @@
 </template>
 
 <script setup>
+import PostIcon from 'src/components/apps/post/PostIcon.vue';
+
 defineProps({
   id: { type: Number },
   title: { type: String },
