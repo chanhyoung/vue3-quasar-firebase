@@ -11,7 +11,7 @@ defineProps({
     required: true,
   },
   label: {
-    type: String,
+    type: [String, Number],
     required: true,
   },
   tooltip: {

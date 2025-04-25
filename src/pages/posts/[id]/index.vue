@@ -10,7 +10,6 @@ import { useRoute } from 'vue-router';
 </template>
 
 <script setup>
-import PostIcon from 'src/components/apps/post/PostIcon.vue';
 import PostDetails from './components/PostDetails.vue';
 import PostComments from './components/PostComments.vue';
 </script>

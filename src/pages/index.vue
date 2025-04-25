@@ -6,16 +6,22 @@
         <PostHeader></PostHeader>
         <PostList :items="posts" />
       </section>
-      <PostRightBar class="col-3"></PostRightBar>
+      <PostRightBar
+        class="col-3"
+        @open-write-dialog="openWriteDialog"
+      ></PostRightBar>
     </div>
+    <PostWriteDialog v-model="openDialog" />
   </q-page>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import PostList from 'src/components/apps/post/PostList.vue';
 import PostHeader from 'src/pages/components/PostHeader.vue';
 import PostLeftBar from 'src/pages/components/PostLeftBar.vue';
 import PostRightBar from 'src/pages/components/PostRightBar.vue';
+import PostWriteDialog from 'src/components/apps/post/PostWriteDialog.vue';
 
 import { useRouter } from 'vue-router';
 
@@ -35,6 +41,11 @@ const posts = Array.from(Array(20), (_, index) => ({
   uid: 'uid',
   category: '카테고리' + index,
 }));
+
+const openDialog = ref(false);
+const openWriteDialog = () => {
+  openDialog.value = true;
+};
 </script>
 
 <style lang="scss" scoped></style>
